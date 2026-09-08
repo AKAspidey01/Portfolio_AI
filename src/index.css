@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-canvas: #0c0d0e;
+  --color-surface-1: #141618;
+  --color-surface-2: #1c1e22;
+  --color-surface-3: #26292e;
+  --color-accent: #e87a43;
+  --color-accent-hover: #f08955;
+  --color-alabaster: #f4f4f2;
+  --color-muted: #8e9298;
+  --color-subtle: #4b4f55;
+  --color-divider: rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Base Styles */
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #0c0d0e;
+  color: #f4f4f2;
+  font-family: var(--font-sans);
+}
+
+/* Lenis Recommended Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Cursor Hide Native Cursor on Desktop */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea {
+    cursor: text !important;
+  }
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle Hairline Dividers */
+.hairline-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-r {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-l {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fluid Editorial Typography Helpers */
+.text-display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.5vw, 6.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.text-display-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.text-mono-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
